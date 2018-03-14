@@ -3,6 +3,7 @@ services:
 
   web:
     build: .
+    command: "jupyter notebook --ip=*"
     container_name: machinelearning
     ports:
       - '8888:8888'

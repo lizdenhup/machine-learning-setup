@@ -12,8 +12,13 @@ FROM ubuntu:latest
 RUN apt-get update && apt-get install -y python3 \
     python3-pip
 
-# Install jupyter
-RUN pip3 install jupyter
+# Install jupyter and friends
+RUN pip3 install pip --upgrade \
+  jupyter \
+  numpy \
+  pandas \
+  sklearn \
+  scipy
 
 # Create a new system user
 RUN useradd -ms /bin/bash jupyter
@@ -25,4 +30,4 @@ USER jupyter
 WORKDIR /home/jupyter
 
 # Start the jupyter notebook
-ENTRYPOINT ["jupyter", "notebook", "--ip=*"]
+# ENTRYPOINT ["jupyter", "notebook", "--ip=*"]
