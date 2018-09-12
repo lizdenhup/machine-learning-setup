@@ -10,7 +10,7 @@ FROM ubuntu:latest
 # Run a system update to get it up to speed
 # Then install python3 and pip3
 RUN apt-get update && apt-get install -y python3 \
-    python3-pip
+  python3-pip
 
 # Install jupyter and friends
 RUN pip3 install pip --upgrade \
@@ -18,7 +18,10 @@ RUN pip3 install pip --upgrade \
   numpy \
   pandas \
   sklearn \
-  scipy
+  scipy \
+  seaborn \
+  matplotlib  \
+  nltk
 
 # Create a new system user
 RUN useradd -ms /bin/bash jupyter
